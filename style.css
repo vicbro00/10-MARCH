@@ -88,6 +88,7 @@ main img {
     background-color: red;
     border-radius: 30px 30px 0 0;
     top: 5px;
+    transition: all 0.2s ease;
 }
 
 .button::before {
@@ -101,6 +102,13 @@ main img {
     margin-left: -30px;
     transform: rotate(45deg);
     transform-origin: 100% 100%;
+}
+
+.button:hover::before,
+.button:hover::after {
+    background-color: #ff3366;
+    box-shadow: 0 0 10px rgba(255, 51, 102, 0.7);
+    transition: all 0.2s ease;
 }
 
 .heart-container {
@@ -120,6 +128,35 @@ main img {
     padding: 0;
     display: flex;
     align-items: center;
+}
+
+/*Pop up message*/
+.click-btn {
+    position: relative;
+}
+
+.click-btn::after {
+    content: "not me";
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #C425E4;
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-size: 0.4em;
+    bottom: 100%;
+    left: 65%;
+    transform: translateX(-50%) translateY(10px);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.click-btn:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
 }
 
 /*Next button*/

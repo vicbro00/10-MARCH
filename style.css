@@ -192,6 +192,37 @@ main img {
     transform: translateX(-50%) translateY(0);
 }
 
+/*Reset button*/
+.reset-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 1.2em;
+    color: white;
+    background: linear-gradient(144deg, #BC66F5, #C425E4, #FE85EE);
+    background-size: 200% 200%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: solid;
+    border-color: white;
+    border-width: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 2s ease-out, transform 2s ease-out;
+}
+
+.reset-btn:hover {
+    background: linear-gradient(144deg, #FE85EE, #C425E4, #BC66F5);
+    background-size: 200% 200%;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.reset-btn.show {
+    opacity: 1;
+}
+
 /*Message*/
 .message {
     display: none;

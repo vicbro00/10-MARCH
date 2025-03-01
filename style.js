@@ -82,6 +82,7 @@ document.getElementById("nextBtn").addEventListener("click", function () {
     const surpriseImg = document.querySelector(".surprise-img");
     const message = document.querySelector(".message");
     const message1 = document.querySelector(".message1");
+    const resetBtn = document.getElementById("resetBtn");
     
     // Start fading out the button and message1
     nextBtn.style.opacity = "0";
@@ -101,6 +102,63 @@ document.getElementById("nextBtn").addEventListener("click", function () {
         surpriseImg.style.display = "block";
         setTimeout(() => {
             surpriseImg.style.opacity = "1";
+            
+            // Show reset button after surprise image appears
+            setTimeout(() => {
+                resetBtn.style.display = "block";
+                setTimeout(() => {
+                    resetBtn.style.opacity = "1";
+                }, 50);
+            }, 1000);
+            
         }, 50);
     }, 1000);
+});
+
+// Add reset button functionality
+document.getElementById("resetBtn").addEventListener("click", function() {
+    const resetBtn = this;
+    const surpriseImg = document.querySelector(".surprise-img");
+    const button = document.getElementById("showMessageBtn");
+    const clickText = document.querySelector(".click-btn");
+    const message = document.querySelector(".message");
+    const message1 = document.querySelector(".message1");
+    const nextBtn = document.getElementById("nextBtn");
+    const fireworksContainer = document.querySelector(".fireworks-container");
+    
+    // Reset button fade out
+    resetBtn.style.opacity = "0";
+    
+    // First clear any fireworks
+    fireworksContainer.innerHTML = "";
+    
+    // Fade out surprise image
+    surpriseImg.style.opacity = "0";
+    
+    setTimeout(() => {
+        // Hide reset button and surprise image
+        resetBtn.style.display = "none";
+        surpriseImg.style.display = "none";
+        
+        // Reset message elements
+        message.style.opacity = "0";
+        message.style.transform = "translate(-50%, -50%) translateY(20px)";
+        message.style.display = "none";
+        message1.style.opacity = "1";
+        message1.style.display = "block";
+        
+        // Reset next button
+        nextBtn.style.opacity = "0";
+        nextBtn.style.transform = "translateX(-50%) translateY(20px)";
+        nextBtn.style.display = "block";
+        
+        // Show original button and text
+        button.style.display = "flex";
+        clickText.style.display = "flex";
+        
+        setTimeout(() => {
+            button.style.opacity = "1";
+            clickText.style.opacity = "1";
+        }, 50);
+    }, 500);
 });

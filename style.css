@@ -23,6 +23,10 @@ h1 {
     text-align: center;
 }
 
+main img {
+    max-height: 30em;
+}
+
 /*Hedgehog running*/
 #runner {
     background: url('https://i.postimg.cc/tJtWf3zV/hedgehogmove.png');
